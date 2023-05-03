@@ -13,7 +13,7 @@
         <hr>
     </header>
     <script>
-    siteList = fetch('databases/main.json').sort();
+    var json; fetch("databases/main.json").then(res => { siteList = res.text().sort() });
     function search(form){
     searchArray = form.searchBox.value.split(" ");
         for (i in searchArray){
@@ -23,6 +23,7 @@
                 }
         }
     }
+
     </script>
     <main id="content"></main>
     <footer><hr><a href="https://github.com/hacknorris-aka-penguin/quick-search">source code</footer>
