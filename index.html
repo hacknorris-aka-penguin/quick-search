@@ -13,7 +13,7 @@
         <hr>
     </header>
     <script>
-    siteList = JSON.parse(fetch('./databases/main.json')).sort();
+    siteList = JSON.parse(fetch('databases/main.json')).sort();
     function search(form){
     searchArray = form.searchBox.value.split(" ");
         for (i in searchArray){
