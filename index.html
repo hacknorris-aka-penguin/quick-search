@@ -12,10 +12,10 @@
         </form>
         <hr>
     </header>
-    <script type="module">
-        import siteList from "databases/main.json" assert {type:"json"};
-    </script>
     <script>
+    fetch("databases/main.json")
+     .then(response => response.json())
+      .then(json => siteList = (json));
     function search(form){
     searchArray = form.searchBox.value.split(" ");
         for (i in searchArray){
