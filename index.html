@@ -21,7 +21,7 @@
         for (i in searchArray){
             for (i in siteList.tags)
                 if (JSON.stringify(siteList.tags.sort()) == JSON.stringify(searchArray.sort())){
-                document.getElementById("content").innerHtml += "<a href='"+siteList.url[i]+"'>"+siteList.title[i]+"</a><br><p>"+siteList.description[i]+"</p><br>"+siteList.tags[i]+"<br><hr>";
+                document.getElementById("content").innerHTML += "<a href='"+siteList.url[i]+"'>"+siteList.title[i]+"</a><br><p>"+siteList.description[i]+"</p><br>"+siteList.tags[i]+"<br><hr>";
                 }
         }
     }
