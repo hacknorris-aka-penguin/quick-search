@@ -20,8 +20,8 @@
     searchArray = document.getElementById("searchBox").value.split(" ");
         for (var i in searchArray){
             for (var j in siteList.pages){
-                if (JSON.stringify(siteList.pages[i].tags.sort()) == JSON.stringify(searchArray.sort())){
-                document.getElementById("content").innerHTML += "<a href='"+siteList.pages[i].url+"'>"+siteList.pages[i].title+"</a><br><p>"+siteList.pages[i].description+"</p><br>"+siteList.pages[i].tags+"<br><hr>";
+                if (JSON.stringify(siteList.pages[j].tags.sort()) == JSON.stringify(searchArray.sort())){
+                document.getElementById("content").innerHTML += "<a href='"+siteList.pages[j].url+"'>"+siteList.pages[j].title+"</a><br><p>"+siteList.pages[j].description+"</p><br>"+siteList.pages[j].tags+"<br><hr>";
                 }
         }
     }
