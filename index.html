@@ -7,7 +7,7 @@
   <body>
     <header>
         <form>
-            <input id="search">
+            <input id="searchBox">
                 <button onclick="search()"><img alt="search" src="favicon.ico" width="25" height="25"></button>
         </form>
     </header>
@@ -17,7 +17,7 @@
      .then(response => response.json())
       .then(json => siteList = (json));
     function search(){
-    searchArray = document.getElementById("search").value.split(" ");
+    searchArray = document.getElementById("searchBox").value.split(" ");
         for (i in searchArray){
             for (i in siteList.tags)
                 if (JSON.stringify(siteList.tags.sort()) == JSON.stringify(searchArray.sort())){
