@@ -1,2 +1,3 @@
-{"title":"test","url":"https://google.com","description":"test","tags":["test"]},
-{"title":"test2","url":"https://bing.com","description":"tests2","tags":["test"]}
+{"pages":[
+{"title":"test","url":"https://google.com","description":"test","tags":["test",""]},{"title":"test2","url":"https://bing.com","description":"tests2","tags":["test",""]}
+]}
