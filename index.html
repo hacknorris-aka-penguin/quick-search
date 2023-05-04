@@ -19,9 +19,9 @@
     function search(){
     searchArray = document.getElementById("searchBox").value.split(" ");
         for (i in searchArray){
-            for (i in siteList.tags){
-                if (JSON.stringify(siteList.tags.sort()) == JSON.stringify(searchArray.sort())){
-                document.getElementById("content").innerHTML += "<a href='"+siteList.url[i]+"'>"+siteList.title[i]+"</a><br><p>"+siteList.description[i]+"</p><br>"+siteList.tags[i]+"<br><hr>";
+            for (i in siteList.pages.tags){
+                if (JSON.stringify(siteList.pages.tags.sort()) == JSON.stringify(searchArray.sort())){
+                document.getElementById("content").innerHTML += "<a href='"+siteList.pages[i].url+"'>"+siteList.pages[i].title+"</a><br><p>"+siteList.pages[i].description+"</p><br>"+siteList.pages[i].tags+"<br><hr>";
                 }
         }
     }
