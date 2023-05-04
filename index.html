@@ -13,15 +13,15 @@
     </header>
     <hr>
     <script>
-    fetch("databases/main.json")
-     .then(response => response.json())
-      .then(json => siteList = (json));
+    fetch("databases/main.json").then(response => response.json()).then(json => siteList = (json));
     function search(){
     searchArray = document.getElementById("searchBox").value.split(" ");
             for (var j in siteList.pages){
                 if (JSON.stringify(siteList.pages[j].tags.sort()) == JSON.stringify(searchArray.sort())){
                 document.getElementById("content").innerHTML += "<a href='"+siteList.pages[j].url+"'>"+siteList.pages[j].title+"</a><br><p>"+siteList.pages[j].description+"</p><br>"+siteList.pages[j].tags+"<br><hr>";
-                }
+            }else{
+                document.getElementById("content").innerHTML = "no results...";
+            }
         }
     }
     </script>
