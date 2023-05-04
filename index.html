@@ -13,7 +13,7 @@
         <hr>
     </header>
     <script>
-    var json = fetch("databases/main.json").then(res => { siteList = res.text() });
+    var json = fetch("databases/main.json").then(res => { siteList = JSON.parse(res.text()) });
     function search(form){
     searchArray = form.searchBox.value.split(" ");
         for (i in searchArray){
