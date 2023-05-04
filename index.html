@@ -8,7 +8,7 @@
     <header>
         <form>
             <input type="search" name="searchBox">
-                <button onclick="search(this.form)"><img alt="search" src="favicon.ico" width="25" height="25"></button>
+                <button onclick="search()"><img alt="search" src="favicon.ico" width="25" height="25"></button>
         </form>
     </header>
     <hr>
@@ -16,8 +16,8 @@
     fetch("databases/main.json")
      .then(response => response.json())
       .then(json => siteList = (json));
-    function search(form){
-    searchArray = form.searchBox.value.split(" ");
+    function search(){
+    searchArray = document.getElementById("searchBox").value.split(" ");
         for (i in searchArray){
             for (i in siteList.tags)
                 if (JSON.stringify(siteList.tags.sort()) == JSON.stringify(searchArray.sort())){
