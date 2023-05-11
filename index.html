@@ -15,10 +15,14 @@
     <script>
     fetch("databases/main.json").then(response => response.json()).then(json => siteList = (json));
     function search(){
+    contentEl = document.getElementById("content")
     searchArray = document.getElementById("searchBox").value.split(" ");
             for (var j in siteList.pages){
-                if (JSON.stringify(siteList.pages[j].tags.sort()) == JSON.stringify(searchArray.sort())){
-                document.getElementById("content").innerHTML += "<div width='50%'><a href='"+siteList.pages[j].url+"'><h4>"+siteList.pages[j].title+"</h4></a><small>"+siteList.pages[j].url+"</small><br><i>"+siteList.pages[j].description+"</i><br><p>ads? "+siteList.pages[j].ads+" ...</p><a href='"+siteList.pages[j].source+"'>source code: "+siteList.pages[j].source+"</a><hr style='margin-left:0;align:left;' width='50%'></div>";
+                for (var i in searchArray){
+                if (i in siteList.pages[j].tags){
+                contentEl.innerHTML += "<div width='50%'><a href='"+siteList.pages[j].url+"'><h4>"+siteList.pages[j].title+"</h4></a><small>"+siteList.pages[j].url+"</small><br><i>"+siteList.pages[j].description+"</i><br><p>ads? "+siteList.pages[j].ads+" ...</p><a href='"+siteList.pages[j].source+"'>source code: "+siteList.pages[j].source+"</a><hr style='margin-left:0;align:left;' width='50%'></div>";
+                }
+                }
             }else{
                 document.getElementById("content").innerHTML = "no results...";
             }
