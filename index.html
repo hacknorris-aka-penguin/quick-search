@@ -14,18 +14,32 @@
     <hr>
     <script>
     fetch("databases/main.json").then(response => response.json()).then(json => siteList = (json));
-    function search(){
-    contentEl = document.getElementById("content");
-    searchArray = document.getElementById("searchBox").value.split(" ");
-            for (var j in siteList.pages){
-                for (var i of searchArray){
-                if (siteList.pages[j].tags.includes(i)){
-                contentEl.innerHTML += "<div width='50%'><a href='"+siteList.pages[j].url+"'><h4>"+siteList.pages[j].title+"</h4></a><small>"+siteList.pages[j].url+"</small><br><i>"+siteList.pages[j].description+"</i><br><p>ads? "+siteList.pages[j].ads+" ...</p><a href='"+siteList.pages[j].source+"'>source code: "+siteList.pages[j].source+"</a><hr style='margin-left:0;align:left;' width='50%'></div>";
-            }else{
-                document.getElementById("content").innerHTML = "no results...";
+function search(){
+    const contentEl = document.getElementById("content");
+    const searchArray = document.getElementById("searchBox").value.toLowerCase().split(" ");
+    for (const page of siteList.pages) {
+        page.tagsMatched = 0;
+        for (const search of searchArray) {
+            if (page.tags.includes(search)) {
+                page.tagsMatched++;
             }
         }
-    } }
+    }
+
+    const results = siteList.pages.filter(({tagsMatched}) => tagsMatched); // gets an array with only the pages that matched at least one tag
+
+    if(results.length === 0) {
+        contentEl.innerHTML = "no results...";
+    } else {
+        results.sort((a, b) => b.tagsMatched - a.tagsMatched);
+        for(const page of results) {
+            const div = document.createElement("div");
+            div.width = "50%";
+            div.innerHTML += "<div width='50%'><a href='"+siteList.pages[j].url+"'><h4>"+siteList.pages[j].title+"</h4></a><small>"+siteList.pages[j].url+"</small><br><i>"+siteList.pages[j].description+"</i><br><p>ads? "+siteList.pages[j].ads+" ...</p><a href='"+siteList.pages[j].source+"'>source code: "+siteList.pages[j].source+"</a><hr style='margin-left:0;align:left;' width='50%'></div>";
+            contentEl.appendChild(div);
+        }
+    }
+}
     </script>
     <main id="content"></main>
     <footer><hr><a href="https://github.com/hacknorris-aka-penguin/quick-search">sauce code</a></footer>
@@ -37,4 +51,3 @@
     <button onclick="document.body.style.background = 'white'; document.body.style.color = 'black'; document.querySelectorAll('a').forEach(a => a.style.color = 'green');" style="color:black;background-color:white">ABC<br/><a href="" style="color:green">abc</a></button></div>
   </body>
 </html>
-
