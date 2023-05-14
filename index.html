@@ -54,6 +54,8 @@ console.log("there was "+results.length+" results");
     <footer><hr><div id="tipper"></div></footer>
 
     <div style="position: fixed; bottom: 0px; right: 0px;">
+    <button onclick="window.scrollTo(0,0);">↑↑↑</button>
+    <button onclick="window.scrollTo(0,document.body.scrollHeight);">↓↓↓</button>
     <button onclick="document.body.style.background = '#002b36'; document.body.style.color = '#839496'; document.querySelectorAll('a').forEach(a => a.style.color = '#586e75');" style="color:#839496;background-color:#002b36">ABC<br/><a href="" style="color:#586e75">abc</a></button>
     <button onclick="document.body.style.background = '#fdf6e3'; document.body.style.color = '#657b83'; document.querySelectorAll('a').forEach(a => a.style.color = '#93a1a1');" style="color:#657b83;background-color: #fdf6e3">ABC<br/><a href="" style="color:#93a1a1">abc</a></button>
     <button onclick="document.body.style.background = 'black'; document.body.style.color = 'green'; document.querySelectorAll('a').forEach(a => a.style.color = 'cyan');" style="color:green;background-color:black">ABC<br/><a href="" style="color:cyan">abc</a></button>
