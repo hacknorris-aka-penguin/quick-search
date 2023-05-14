@@ -13,9 +13,13 @@
     </header>
     <hr>
     <script>
+function random_item(items)
+{
+return items[Math.floor(Math.random()*items.length)];
+}
 function quicktip(){
-tip = _.sample(["to clear search results just refresh page","source code of that website is always visible on github - https://github.com/hacknorris-aka-penguin/quick-search","if you use a modern browser you can toggle theme in bottom right corner",""]);
-document.getElementById("tipper").innerHTML = tip;
+tips = ["to clear search results just refresh page","source code of that website is always visible on github - https://github.com/hacknorris-aka-penguin/quick-search","if you use a modern browser you can toggle theme in bottom right corner",""];
+document.getElementById("tipper").innerHTML = random_item(tips);
 }
     fetch("databases/main.json").then(response => response.json()).then(json => siteList = (json));
 function search(){
