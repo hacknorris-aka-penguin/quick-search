@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>search</title>
   </head>
-  <body>
+  <body onload="quicktip();">
     <header>
         <form>
             <input id="searchBox">
@@ -13,6 +13,10 @@
     </header>
     <hr>
     <script>
+function quicktip(){
+tip = _.sample(["to clear search results just refresh page","source code of that website is always visible on github - https://github.com/hacknorris-aka-penguin/quick-search","if you use a modern browser you can toggle theme in bottom right corner",""]);
+document.getElementById("tipper").innerHTML = tip;
+}
     fetch("databases/main.json").then(response => response.json()).then(json => siteList = (json));
 function search(){
     const contentEl = document.getElementById("content");
@@ -38,11 +42,11 @@ function search(){
             div.innerHTML += "<div width='50%'><a href='"+page.url+"'><h4>"+page.title+"</h4></a><small>"+page.url+"</small><br><i>"+page.description+"</i><br><p>ads? "+page.ads+" ...</p><a href='"+page.source+"'>source code: "+page.source+"</a><hr style='margin-left:0;align:left;' width='50%'></div>";
             contentEl.appendChild(div);
         }
-    }
+   } 
 }
     </script>
     <main id="content"></main>
-    <footer><hr><a href="https://github.com/hacknorris-aka-penguin/quick-search">sauce code</a></footer>
+    <footer><hr><div id="tipper"></div></footer>
 
     <div style="position: fixed; bottom: 0px; right: 0px;">
     <button onclick="document.body.style.background = '#002b36'; document.body.style.color = '#839496'; document.querySelectorAll('a').forEach(a => a.style.color = '#586e75');" style="color:#839496;background-color:#002b36">ABC<br/><a href="" style="color:#586e75">abc</a></button>
